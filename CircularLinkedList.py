@@ -18,6 +18,13 @@ class CircularLinkedList:
             self.tall = new_node
             self.tall.next = self.head
         
+        else:
+            self.tall.next = new_node
+            self.tall = new_node
+            self.tall.next = self.head
+        
+        self.size += 1
+        
 
         
 
