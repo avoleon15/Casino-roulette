@@ -42,3 +42,12 @@ class CircularLinkedList:
 
         return self.current.number
     
+    def __repr__(self):
+        if self.head is None:
+            return 'CircularLinkedList(vacía)'
+        numeros = []
+        nodo = self.hand
+        for _  in range(self.size):
+            numeros.append(str(nodo.number))
+            nodo = nodo.next
+        return f"CircularLinkedList([{', '.join(numeros)}] → head)"
