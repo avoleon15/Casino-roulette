@@ -62,3 +62,18 @@ class Game:
         self.apuestas = SinglyLinkedList()
  
         return resultado_number
+    
+
+
+    def _color_del_numero(self, number: int) -> str:
+        """
+        Retorna el color asociado a cada número de la ruleta europea.
+        El 0 es verde. Los demás siguen la distribución estándar.
+        """
+        rojos = {1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36}
+        if number == 0:
+            return "verde"
+        elif number in rojos:
+            return "rojo"
+        else:
+            return "negro"
