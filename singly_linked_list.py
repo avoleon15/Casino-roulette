@@ -58,3 +58,23 @@ class SinglyLinkedList:
             apuestas.append({"number": current.number, "color": current.color})
             current = current.next
         return apuestas
+
+    def verificar_ganador(self, resultado_number: int, resultado_color: str):
+        if self.head is None:
+            return []
+
+        ganadores = []
+        current = self.head
+        # recorrer todas las apuestas y comparar contra el resultado de la ruleta
+        for _ in range(self.size):
+            gana_number = current.number == resultado_number
+            gana_color = current.color == resultado_color
+            if gana_number or gana_color:
+                ganadores.append({
+                    "number": current.number,
+                    "color": current.color,
+                    "gana_por_numero": gana_number,
+                    "gana_por_color": gana_color,
+                })
+            current = current.next
+        return ganadores
