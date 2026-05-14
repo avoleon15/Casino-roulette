@@ -45,3 +45,20 @@ class Game:
         print(f"\nRuleta cayó en: {resultado_number} ({resultado_color})")
  
         ganadores = self.apuestas.verificar_ganador(resultado_number, resultado_color)
+
+        if not ganadores:
+            print("Ninguna apuesta ganó esta ronda.")
+        else:
+            for apuesta in ganadores:
+                ganancia = 0
+                if apuesta["gana_por_numero"]:
+                    ganancia += apuesta["monto"] * 35
+                if apuesta["gana_por_color"]:
+                    ganancia += apuesta["monto"] * 2
+                self.saldo += ganancia
+                print(f"  ¡Ganaste! Número {apuesta['number']}, color {apuesta['color']} → +{ganancia}. Saldo: {self.saldo}")
+ 
+        # Limpiar apuestas de la ronda
+        self.apuestas = SinglyLinkedList()
+ 
+        return resultado_number
