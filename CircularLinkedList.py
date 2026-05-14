@@ -26,10 +26,19 @@ class CircularLinkedList:
         self.size += 1
         
 
-        
-
     def construir_ruleta(self):
         for numero in range(37):
             self.insertar_numero(numero)
         self.current = self.head
 
+
+    def girar(self) -> int:
+        if self.head is None:
+            raise RuntimeError("La ruleta no está construida. Llama a construir_ruleta() primero.")
+        
+        pasos = random.randint(1, self.size * 3)
+        for _ in range(pasos):
+            self.current = self.current.next
+
+        return self.current.number
+    
