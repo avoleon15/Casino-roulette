@@ -75,6 +75,7 @@ class SinglyLinkedList:
                     "color": current.color,
                     "gana_por_numero": gana_number,
                     "gana_por_color": gana_color,
+                    "monto": current.monto
                 })
             current = current.next
         return ganadores
