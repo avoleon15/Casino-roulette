@@ -44,8 +44,8 @@ def girar():
     color_ganador = game._color_del_numero(numero_ganador)
 
     return jsonify({
-        "numero ganador": numero_ganador,
-        "color ganador": color_ganador,
+        "numero_ganador": numero_ganador,
+        "color_ganador": color_ganador,
         "saldo": game.saldo
     })
 

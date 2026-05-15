@@ -46,7 +46,7 @@ class CircularLinkedList:
         if self.head is None:
             return 'CircularLinkedList(vacía)'
         numeros = []
-        nodo = self.hand
+        nodo = self.head
         for _  in range(self.size):
             numeros.append(str(nodo.number))
             nodo = nodo.next
