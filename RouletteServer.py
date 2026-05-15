@@ -28,3 +28,10 @@ def apostar():
         return jsonify({"mensaje": "Apuesta registrada", "saldo": game.saldo})
     else:
         return jsonify({"error": "Saldo insuficiente o monto inválido"}), 400
+    
+
+@app.route("/ver_apuestas", methods=["GET"])
+def ver_apuestas():
+    apuestas = game.apuestas.ver_apuestas()
+    return jsonify({"apuestas": apuestas})
+
