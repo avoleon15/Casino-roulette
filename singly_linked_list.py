@@ -7,8 +7,8 @@ class SinglyLinkedList:
         self.tail = None  # último nodo; su .next apunta a head (circular)
         self.size = 0     # cantidad de apuestas activas
 
-    def insertar_apuesta(self, number: int, color: str):
-        new_node = Node(number, color)
+    def insertar_apuesta(self, number: int, color: str, monto: float):
+        new_node = Node(number, color, monto)
         if self.head is None:
             # lista vacía: el único nodo se apunta a sí mismo
             self.head = new_node
