@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a2e;
+    color: #eee;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #f0c040;
+    margin-bottom: 40px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.result-container {
+    background-color: #16213e;
+    border: 2px solid #f0c040;
+    border-radius: 12px;
+    padding: 30px 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    min-width: 250px;
+}
+
+.result-label {
+    font-size: 0.9rem;
+    color: #aaa;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.result-number {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #f0c040;
+    line-height: 1;
+}
+
+.result-number.red   { color: #e74c3c; }
+.result-number.black { color: #ecf0f1; }
+.result-number.green { color: #2ecc71; }
+
+.result-color {
+    font-size: 1rem;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaa;
+}
+
+.spin-btn {
+    background-color: #f0c040;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 48px;
+    font-size: 1.1rem;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.spin-btn:hover  { background-color: #f5d060; }
+.spin-btn:active { transform: scale(0.97); }
+.spin-btn:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
