@@ -96,3 +96,52 @@ When you spin, the result is compared against every active bet:
 - **Black:** all remaining numbers
 
 After each spin all bets are cleared. Use **Restart** to reset the balance back to Q1,000.
+
+---
+
+## Running Locally
+
+### Prerequisites
+- Python 3.x
+- pip
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/Casino-roulette.git
+cd Casino-roulette
+```
+
+### 2. Install dependencies
+
+```bash
+pip install flask flask-cors
+```
+
+### 3. Start the backend
+
+```bash
+python RouletteServer.py
+```
+
+The server will run at `http://localhost:5001`.
+
+### 4. Start the frontend
+
+Open a second terminal in the same folder:
+
+```bash
+cd frontend
+python -m http.server 3000
+```
+
+### 5. Open the game
+
+Go to `http://localhost:3000` in your browser.
+
+### Running the tests
+
+```bash
+python -m unittest test_singly_linked_list -v
+python -m unittest test_circular_linked_list -v
+```
