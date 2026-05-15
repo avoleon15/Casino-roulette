@@ -4,7 +4,7 @@ from Node import Node
 class CircularLinkedList:
     def __init__(self):
         self.head = None
-        self.tall = None
+        self.tail = None
         self.current = None
         self.size = 0
 
@@ -15,13 +15,13 @@ class CircularLinkedList:
         new_node = Node(number)
         if self.head is None:
             self.head = new_node
-            self.tall = new_node
-            self.tall.next = self.head
+            self.tail = new_node
+            self.tail.next = self.head
         
         else:
-            self.tall.next = new_node
-            self.tall = new_node
-            self.tall.next = self.head
+            self.tail.next = new_node
+            self.tail = new_node
+            self.tail.next = self.head
         
         self.size += 1
         
