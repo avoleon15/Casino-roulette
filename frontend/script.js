@@ -1,4 +1,4 @@
-const BASE = 'http://localhost:5000';
+const BASE = 'http://localhost:5001';
 
 // Obtiene el saldo actual del servidor y lo muestra en pantalla
 async function getSaldo() {
@@ -18,23 +18,40 @@ async function apostar() {
     msg.className = 'msg';
     msg.textContent = '';
 
-    const res = await fetch(`${BASE}/apostar`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ number, color, monto })
-    });
-
-    const data = await res.json();
-
-    // Actualiza saldo y lista de apuestas si la apuesta fue exitosa
-    if (res.ok) {
-        msg.className = 'msg ok';
-        msg.textContent = 'Bet placed!';
-        getSaldo();
-        verApuestas();
-    } else {
+    // Valida que los campos tengan valores válidos antes de enviar
+    if (isNaN(number) || number < 0 || number > 36) {
         msg.className = 'msg err';
-        msg.textContent = data.error;
+        msg.textContent = 'Enter a number between 0 and 36.';
+        return;
+    }
+    if (isNaN(monto) || monto <= 0) {
+        msg.className = 'msg err';
+        msg.textContent = 'Enter a valid amount.';
+        return;
+    }
+
+    try {
+        const res = await fetch(`${BASE}/apostar`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ number, color, monto })
+        });
+
+        const data = await res.json();
+
+        // Actualiza saldo y lista de apuestas si la apuesta fue exitosa
+        if (res.ok) {
+            msg.className = 'msg ok';
+            msg.textContent = 'Bet placed!';
+            getSaldo();
+            verApuestas();
+        } else {
+            msg.className = 'msg err';
+            msg.textContent = data.error;
+        }
+    } catch (error) {
+        msg.className = 'msg err';
+        msg.textContent = 'Could not connect to server.';
     }
 }
 
