@@ -35,3 +35,16 @@ def ver_apuestas():
     apuestas = game.apuestas.ver_apuestas()
     return jsonify({"apuestas": apuestas})
 
+@app.route("/girar" methods=["POST"])
+def girar():
+    if game.apuestas.size == 0:
+        return jsonify({"apuestas": "No hay ninguna apuesta regresitada"}), 400
+    
+    numero_ganador = game.calcular_resultado()
+    color_ganador = game._color_del_numero(numero_ganador)
+
+    return jsonify({
+        "numero ganador": numero_ganador,
+        "color ganador": color_ganador,
+        "saldo": game.saldo
+    })
