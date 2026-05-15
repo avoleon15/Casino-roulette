@@ -55,7 +55,7 @@ class SinglyLinkedList:
         current = self.head
         # recorrer exactamente size nodos para no entrar en loop infinito
         for _ in range(self.size):
-            apuestas.append({"number": current.number, "color": current.color})
+            apuestas.append({"number": current.number, "color": current.color, "monto": current.monto})
             current = current.next
         return apuestas
 
